@@ -24,7 +24,7 @@ function Navbar() {
           
           {/* Logo */}
           <div className="flex-shrink-0">
-            <img src={logo} alt="Minibytes" className="h-10 w-auto" />
+            <img src={logo} alt="Minibytes" className="h-40 w-auto" />
           </div>
 
           {/* Navigation Links */}

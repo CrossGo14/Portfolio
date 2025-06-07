@@ -5,6 +5,9 @@ import './App.css'
 import Navbar from './components/common/Navbar'
 import Home from './components/sections/Home'
 import AboutUs from './components/sections/AboutUs'
+import Services from './components/sections/Services'
+import Products from './components/sections/Projects'
+
 
 function App() {
 
@@ -14,6 +17,8 @@ function App() {
     <br></br>
     <Home/>
     <AboutUs/>
+    <Services />
+    <Products />
 
     </>
   )

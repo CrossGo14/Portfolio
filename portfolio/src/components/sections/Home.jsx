@@ -1,5 +1,5 @@
 import React from 'react';
-import background from '/Users/aaryagandhi/Desktop/MiniByte_Portfolio/portfolio/src/assets/image1.jpg';
+import background from '/Users/aaryagandhi/Desktop/MiniByte_Portfolio/portfolio/public/images/image1.jpg';
 
 function Home() {
 

@@ -1,0 +1,30 @@
+[
+    {
+      "id": 1,
+      "title": "eCommerce Platform for Local Retail",
+      "description": "Built a scalable eCommerce platform for a local retailer, increasing their online sales by 40% within three months. Features include a user-friendly product catalog, secure payment gateway, and real-time order tracking.",
+      "technologies": ["React", "Node.js", "MongoDB", "Tailwind CSS"],
+      "image": "/images/image1.jpg"
+    },
+    {
+      "id": 2,
+      "title": "Portfolio Site for Creative Agency",
+      "description": "Redesigned a portfolio website for a creative agency, earning them recognition for their stunning digital presence. The site features dynamic animations, a responsive gallery, and SEO optimization.",
+      "technologies": ["React", "Tailwind CSS", "Framer Motion"],
+      "image": " "
+    },
+    {
+      "id": 3,
+      "title": "Custom Web App for Tech Startup",
+      "description": "Developed a custom web application for a tech startup, helping them secure their first round of funding. The app includes a dashboard for user analytics, API integrations, and a scalable backend.",
+      "technologies": ["React", "Node.js", "Express", "MongoDB"],
+      "image": " "
+    },
+    {
+      "id": 4,
+      "title": "Educational Platform for Online Learning",
+      "description": "Created an online learning platform with features like course management, user authentication, and progress tracking. Designed to be fast, accessible, and engaging for students.",
+      "technologies": ["React", "Firebase", "Tailwind CSS"],
+      "image": " "
+    }
+  ]
