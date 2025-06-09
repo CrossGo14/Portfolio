@@ -9,7 +9,7 @@ function Services(){
 
 
          <h1 className="text-7xl font-bold mt-5 font-roboto ">Services</h1>        
-        <div className="grid grid-cols-3 gap-5 bg-blue-100 ">
+        <div className="grid grid-cols-1 custom-grid-md-3 custom-grid-responsive gap-5 bg-blue-100 ">
 
             <div className="mt-5 hover:-translate-y-2 transform transition-transform duration-300">
             <span className="text-4xl font-roboto text-blue-600"> #1 </span>

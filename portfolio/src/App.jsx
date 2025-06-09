@@ -7,6 +7,8 @@ import Home from './components/sections/Home'
 import AboutUs from './components/sections/AboutUs'
 import Services from './components/sections/Services'
 import Products from './components/sections/Projects'
+import ContactUs from './components/sections/ContactUs'
+import './index.css'
 
 
 function App() {
@@ -19,7 +21,7 @@ function App() {
     <AboutUs/>
     <Services />
     <Products />
-
+    <ContactUs />
     </>
   )
 }

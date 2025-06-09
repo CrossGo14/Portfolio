@@ -15,3 +15,17 @@ body {
 @theme{
   --font-roboto:Roboto,"sans-serif";
 }
+
+
+/* Custom grid layout for ContactUs */
+@media (min-width: 768px) {
+  .custom-grid-responsive {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .custom-grid-responsive {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

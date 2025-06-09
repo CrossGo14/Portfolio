@@ -2,17 +2,19 @@
 import projects from "../../assets/data/projects.json";
 
 function Projects() {
+    
   return (
     <div
       id="projects"
       className="min-h-screen flex flex-col p-10 bg-blue-100 font-roboto scroll-mt-10"
     >
       <span className="text-7xl font-bold">Projects</span>
-      <div className="mt-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+      {/* mkc this is how its done, u dont specify the initial, just specify the md and lg tags and it is done  */}
+      <div className="mt-10 grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
         {projects.map((project) => (
           <div
             key={project.id}
-            className="bg-white rounded-lg transition-transform hover:scale-105 flex flex-col w-full box-border"
+            className="bg-white rounded-lg flex flex-col w-full box-border hover:-translate-y-2 transform transition-transform duration-300"
           >
             <img
               src={project.image}
