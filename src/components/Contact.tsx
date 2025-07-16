@@ -1,4 +1,4 @@
-import React, { FormEvent,useRef, useState } from "react";
+import React, { FormEvent, useRef, useState } from "react";
 import {
   Mail,
   Phone,
@@ -15,10 +15,9 @@ import {
   useStaggeredAnimation,
 } from "../hooks/useScrollAnimation";
 import emailjs from "@emailjs/browser";
-import { toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 
 const Contact = () => {
-
   const [titleRef, titleVisible] = useScrollAnimation();
   const [formRef, formVisible] = useScrollAnimation();
   const [contactInfoRef, contactInfoVisible] = useStaggeredAnimation(3, 200);
@@ -26,18 +25,23 @@ const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    company: "",
+    phone: "",
     message: "",
+    subject: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const form = useRef<HTMLFormElement>(null); // form ref with type
+  //this if a form refrecne used by <form> idk why but iya hai use
+  const form = useRef<HTMLFormElement>(null);
 
+  //this is the function handling the sending mail
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (!form.current) return;
+
+    setIsSubmitting(true); // Set submitting state to true
 
     emailjs
       .sendForm(
@@ -51,6 +55,14 @@ const Contact = () => {
           toast.success(
             "Thank you for your message! We'll get back to you soon."
           );
+          setIsSubmitted(true); // Update state to show success message
+          setFormData({
+            name: "",
+            email: "",
+            phone: "",
+            message: "",
+            subject: "",
+          }); // Reset form
         },
         (error) => {
           toast.warning(
@@ -58,16 +70,10 @@ const Contact = () => {
           );
           console.error("EmailJS Error:", error);
         }
-      );
-  };
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+      )
+      .finally(() => {
+        setIsSubmitting(false); // Reset submitting state
+      });
   };
 
   const contactInfo = [
@@ -226,8 +232,6 @@ const Contact = () => {
                       type="text"
                       id="name"
                       name="name"
-                      value={formData.name}
-                      onChange={handleChange}
                       required
                       placeholder="Your full name"
                       className="w-full px-4 py-4 bg-slate-700/50 border border-slate-600/50 rounded-xl text-white placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 group-hover:border-blue-500/30 transform focus:scale-105 hover:bg-slate-700/70"
@@ -245,8 +249,6 @@ const Contact = () => {
                       type="email"
                       id="email"
                       name="email"
-                      value={formData.email}
-                      onChange={handleChange}
                       required
                       placeholder="your.email@example.com"
                       className="w-full px-4 py-4 bg-slate-700/50 border border-slate-600/50 rounded-xl text-white placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 group-hover:border-blue-500/30 transform focus:scale-105 hover:bg-slate-700/70"
@@ -264,8 +266,6 @@ const Contact = () => {
                       type="text"
                       id="phone"
                       name="phone"
-                      value={formData.company}
-                      onChange={handleChange}
                       placeholder="Your Phone Number"
                       className="w-full px-4 py-4 bg-slate-700/50 border border-slate-600/50 rounded-xl text-white placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 group-hover:border-blue-500/30 transform focus:scale-105 hover:bg-slate-700/70"
                     />
@@ -282,8 +282,6 @@ const Contact = () => {
                       type="text"
                       id="subject"
                       name="subject"
-                      value={formData.company}
-                      onChange={handleChange}
                       placeholder="Enter the Subject"
                       className="w-full px-4 py-4 bg-slate-700/50 border border-slate-600/50 rounded-xl text-white placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 group-hover:border-blue-500/30 transform focus:scale-105 hover:bg-slate-700/70"
                     />
@@ -299,8 +297,6 @@ const Contact = () => {
                     <textarea
                       id="message"
                       name="message"
-                      value={formData.message}
-                      onChange={handleChange}
                       required
                       rows={4}
                       placeholder="Tell us about your project..."
