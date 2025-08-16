@@ -15,14 +15,7 @@ const About = () => {
       color: 'blue',
       initial: 'M'
     },
-    {
-      name: 'Vimarsha',
-      role: 'UI/UX Designer',
-      description: 'Creates intuitive and beautiful user experiences with a focus on modern design principles and user-centered approach.',
-      icon: Palette,
-      color: 'purple',
-      initial: 'V'
-    },
+  
     {
       name: 'Aarya',
       role: 'Business Strategist',
